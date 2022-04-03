@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "key": {
+    "X": [
+      {"item": "minecraft:stone"},
+      {"item": "minecraft:cobblestone"}
+    ],
+    "#": {"item": "minecraft:lava_bucket"}
+  },
+  "result": {
+    "item": "minecraft:andesite",
+    "count": 8
+  }
+}

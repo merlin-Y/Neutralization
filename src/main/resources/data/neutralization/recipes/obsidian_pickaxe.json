@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    " X ",
+    " X "
+  ],
+  "key": {
+    "#": {"item": "neutralization:obsidian_ingot"},
+    "X": {"item": "minecraft:stick"}
+  },
+  "result": {
+    "item": "neutralization:obsidian_pickaxe",
+    "count": 1
+  }
+}
