@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "face=0": {"model": "neutralization:block/changed_block_model_0"},
+    "face=1": {"model": "neutralization:block/changed_block_model_1"}
+  }
+}

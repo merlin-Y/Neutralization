@@ -1,0 +1,6 @@
+{
+  "parent": "block:cube_all",
+  "textures": {
+    "all": "neutralization:block/changed_block_0"
+  }
+}

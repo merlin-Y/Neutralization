@@ -1,31 +1,32 @@
-package com.merlin_y.neutralization.moditemtier;
+package com.merlin_y.neutralization.enums;
 
+import com.merlin_y.neutralization.Item.NItem;
+import com.sun.istack.internal.NotNull;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public class ModItemTier implements IItemTier {
+public enum NItemTier implements IItemTier{
+    OBSIDIAN(4, 2500, 6.0F, 4.0F, 14, () -> {
+        return Ingredient.of(NItem.ObsidianIngot.get());
+    })
+    ;
 
     private final int harvestLevel;
-    private final float speed;
+    private final float efficiency;
     private final int enchantability;
     private final Supplier<Ingredient> repairMaterial;
-    private int maxUses;
-    private float baseDamage;
-    private String name;
+    private final int maxUses;
+    private final float attackDamage;
 
-    ModItemTier(String name,int maxuses,int harvestLevel,int enchantability,float speed,float baseDamage,Supplier<Ingredient> repairMaterial){
-        this.name = name;
-        this.maxUses = maxuses;
+    NItemTier(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, Supplier<Ingredient> repairMaterial) {
         this.harvestLevel = harvestLevel;
+        this.maxUses = maxUses;
+        this.efficiency = efficiency;
+        this.attackDamage = damage;
         this.enchantability = enchantability;
-        this.speed = speed;
-        this.baseDamage = baseDamage;
         this.repairMaterial = repairMaterial;
-    }
-    ModItemTier(String name, ItemTiers ItemTier, Supplier<Ingredient> repairMaterial){
-        this(name,ItemTier.getUses(),ItemTier.getLevel(),ItemTier.getEnchantmentValue(),ItemTier.getSpeed(),ItemTier.getAttackDamageBonus(),repairMaterial);
     }
 
     @Override
@@ -35,12 +36,12 @@ public class ModItemTier implements IItemTier {
 
     @Override
     public float getSpeed() {
-        return speed;
+        return efficiency;
     }
 
     @Override
     public float getAttackDamageBonus() {
-        return baseDamage;
+        return attackDamage;
     }
 
     @Override
@@ -53,6 +54,7 @@ public class ModItemTier implements IItemTier {
         return enchantability;
     }
 
+    @NotNull
     @Override
     public Ingredient getRepairIngredient() {
         return repairMaterial.get();
